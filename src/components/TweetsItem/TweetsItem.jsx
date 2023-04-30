@@ -14,9 +14,8 @@ import Logo from '../../images/Logo.png';
 import Picture from '../../images/Picture.png';
 import Circle from '../../images/Circle.png';
 
-const TweetsItem = ({ tweet }) => {
+const TweetsItem = ({ tweet, follow, onClick }) => {
   const { tweets, followers, avatar } = tweet;
-  const text = 'Follow';
   return (
     <TweetItem>
       <LogoImg src={Logo} alt="GO-IT" />
@@ -31,9 +30,13 @@ const TweetsItem = ({ tweet }) => {
       <CircleImg>
         <img src={Circle} alt="Circle" />
       </CircleImg>
-      <Button background={text}>{text}</Button>
-      <TweetsCount>{followers.toLocaleString('en-US')} FOLLOWERS</TweetsCount>
-      <TweetsCount>{tweets} TWEETS</TweetsCount>
+      <Button background={follow} onClick={onClick}>
+        {follow ? 'Following' : 'Follow'}
+      </Button>
+      <TweetsCount>
+        {(followers + follow).toLocaleString('en-US')} FOLLOWERS
+      </TweetsCount>
+      <TweetsCount>{tweets.toLocaleString('en-US')} TWEETS</TweetsCount>
     </TweetItem>
   );
 };

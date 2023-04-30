@@ -6,7 +6,7 @@ export const TweetItem = styled.li`
   align-items: center;
   position: relative;
   width: 380px;
-  height: 404px;
+  height: 460px;
   padding-top: 20px;
   padding-bottom: 36px;
   background: linear-gradient(

@@ -4,8 +4,6 @@ export const Section = styled.section`
   background-color: #fff;
   color: #000;
 
-  height: ${p => (p.page === 'Home' ? '100vh' : 'auto')};
-
   padding-top: 50px;
   padding-bottom: 100px;
   @media (min-width: 768px) {

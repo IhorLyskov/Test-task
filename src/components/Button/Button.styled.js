@@ -6,9 +6,7 @@ export const FollowBtn = styled.button`
   align-items: center;
 
   background: ${p =>
-    p.background === 'Follow'
-      ? p.theme.colors.colorFollow
-      : p.theme.colors.colorFollowing};
+    p.background ? p.theme.colors.colorFollowing : p.theme.colors.colorFollow};
   color: ${p => p.theme.colors.colorButtonText};
   box-shadow: ${p => p.theme.button.boxShadow};
   border-radius: ${p => p.theme.button.borderRadius};

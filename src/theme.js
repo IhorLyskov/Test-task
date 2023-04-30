@@ -2,7 +2,7 @@ export const theme = {
   colors: {
     colorFollow: '#EBD8FF',
     colorFollowing: '#5CD3A8',
-    colorHover: '#5cd3a8',
+    colorHover: '#e5bf54',
     colorButtonText: '#373737',
   },
   font: {

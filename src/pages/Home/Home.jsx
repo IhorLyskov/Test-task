@@ -1,4 +1,4 @@
-import { Section, SectionText } from '../components/Section/Section.styled';
+import { Section, SectionText } from '../../components/Section/Section.styled';
 
 const Home = () => {
   return (

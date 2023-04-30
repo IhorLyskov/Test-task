@@ -21,11 +21,11 @@ export const NavLinkHeader = styled(NavLink)`
   padding: 4px;
   margin-left: 20px;
   color: #ebd8ff;
-  transition: all 0.25s linear;
-  &:hover,
-  &.active,
-  &:focus {
+  &.active {
     color: #5cd3a8;
+  }
+  &:hover {
+    color: #e5bf54;
   }
 `;
 

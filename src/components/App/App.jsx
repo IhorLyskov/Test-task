@@ -1,11 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
-import { NavBar } from './components/NavBar/NavBar';
-import Home from './pages/Home';
-import Tweets from './pages/Tweets';
-import { Container } from './components/Container/Container';
+import { NavBar } from '../NavBar/NavBar';
+import Home from '../../pages/Home/Home';
+import Tweets from '../../pages/Tweets/Tweets';
+import { Container } from '../Container/Container';
 
 function App() {
-  console.log(1);
   return (
     <>
       <NavBar />
