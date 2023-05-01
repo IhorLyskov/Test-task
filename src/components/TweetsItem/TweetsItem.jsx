@@ -19,7 +19,6 @@ import Circle from '../../images/Circle.png';
 
 const TweetsItem = ({ tweet, follow, onClick }) => {
   const { user, tweets, followers, avatar } = tweet;
-  console.log(user);
 
   const [isHover, setIsHover] = useState(false);
 
