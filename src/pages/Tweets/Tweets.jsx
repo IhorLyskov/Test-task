@@ -21,6 +21,7 @@ const Tweets = () => {
   const [follows, setFollows] = useState({});
   const [count, setCount] = useState(3);
   const [isFollowsChange, setIsFollowsChange] = useState(false);
+  const [isFilterForm, setIsFilterForm] = useState(true);
   const [isFilterChange, setIsFilterChange] = useState(true);
   const [filter, setFilter] = useState('show all');
 
@@ -54,7 +55,7 @@ const Tweets = () => {
     data[id] = data[id] ? false : true;
     setFollows(data);
     setIsFollowsChange(true);
-    setIsFilterChange(true);
+    setIsFilterForm(true);
   };
 
   const handleLoadMore = () => {
@@ -62,8 +63,11 @@ const Tweets = () => {
   };
 
   const filterTweets = useMemo(() => {
-    setIsFilterChange(false);
-    setCount(3);
+    setIsFilterForm(false);
+    if (isFilterChange) {
+      setIsFilterChange(false);
+      setCount(3);
+    }
     switch (filter) {
       case 'follow':
         return tweets.filter(tweet => follows[tweet.id] === false);
@@ -73,7 +77,7 @@ const Tweets = () => {
         return tweets;
     }
     // eslint-disable-next-line
-  }, [isFilterChange, filter, follows, tweets]);
+  }, [isFilterForm, isFilterChange, filter, follows, tweets]);
 
   return (
     <>
@@ -86,6 +90,7 @@ const Tweets = () => {
             value={filter}
             onChange={e => {
               setFilter(e.target.value);
+              setIsFilterChange(true);
             }}
           />
         </ContainerBack>
