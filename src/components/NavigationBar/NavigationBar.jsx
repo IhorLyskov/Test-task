@@ -2,7 +2,7 @@ import { Menu, Nav, NavLinkHeader, BoyImg } from './NavigationBar.styled';
 
 import boyImage from '../../images/Boy.png';
 
-export const NavigationBar = () => {
+const NavigationBar = () => {
   return (
     <Nav>
       <Menu>
@@ -15,3 +15,5 @@ export const NavigationBar = () => {
     </Nav>
   );
 };
+
+export default NavigationBar;

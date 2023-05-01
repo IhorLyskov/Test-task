@@ -14,8 +14,6 @@ export const FollowBtn = styled.button`
   margin-top: ${p => p.theme.button.marginTop};
   padding: ${p => p.theme.button.padding};
 
-  font-family: ${p => p.theme.font.fontFamily};
-  font-style: ${p => p.theme.font.fontStyle};
   font-weight: ${p => p.theme.font.fontWeight};
   font-size: ${p => p.theme.font.fontSizeButton};
   line-height: ${p => p.theme.font.lineHeight};

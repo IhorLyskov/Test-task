@@ -20,12 +20,12 @@ export const NavLinkHeader = styled(NavLink)`
   display: block;
   padding: 4px;
   margin-left: 20px;
-  color: #ebd8ff;
+  color: ${p => p.theme.colors.colorFollow};
   &.active {
-    color: #5cd3a8;
+    color: ${p => p.theme.colors.colorFollowing};
   }
   &:hover {
-    color: #e5bf54;
+    color: ${p => p.theme.colors.colorHover};
   }
 `;
 

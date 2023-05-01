@@ -4,7 +4,9 @@ import 'modern-normalize';
 const GlobalStyle = createGlobalStyle`
 body {
   margin: 0;
-  font-family: Montserrat;
+  font-family: ${p => p.theme.font.fontFamily};
+  font-style: ${p => p.theme.font.fontStyle};
+  text-align: center;
   background-color: #fff;
 }
 

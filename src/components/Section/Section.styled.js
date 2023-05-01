@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  background-color: #fff;
-  color: #000;
-
   padding-top: 50px;
   padding-bottom: 100px;
   @media (min-width: 768px) {
@@ -15,10 +12,8 @@ export const Section = styled.section`
 `;
 
 export const SectionText = styled.p`
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  text-align: center;
+  font-weight: ${p => p.theme.font.fontWeight};
+  font-size: ${p => p.theme.font.fontSizeText};
   letter-spacing: -0.02em;
   @media (min-width: 768px) {
     font-size: 21px;

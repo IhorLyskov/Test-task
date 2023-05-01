@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import GlobalStyles from './components/GlobalStyles/GlobalStyles';
+import GlobalStyles from './components/GlobalStyles';
 import App from './components/App';
 import { BrowserRouter } from 'react-router-dom';
 

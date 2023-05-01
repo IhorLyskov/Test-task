@@ -2,15 +2,14 @@ import { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Section, SectionText } from '../../components/Section/Section.styled';
-import TweetsItem from '../../components/TweetsItem/TweetsItem';
+import TweetsItem from '../../components/TweetsItem';
 import { TweetList } from '../../components/TweetsItem/TweetsItem.styled';
-import { getAllTweets } from '../../api/api';
-import Button from '../../components/Button/Button';
-import { Loader } from '../../components/Loader/Loader';
-// import { Container } from '../../components/Container/Container';
+import getAllTweets from '../../api';
+import Button from '../../components/Button';
+import Loader from '../../components/Loader';
 import { getFollows } from '../../localStorage/getFollows';
 import { save } from '../../localStorage/localstorage';
-import Filter from '../../components/Filter/Filter';
+import Filter from '../../components/Filter';
 
 import { ContainerLoadMore, ContainerBack } from './Tweets.styled';
 

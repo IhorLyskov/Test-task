@@ -4,11 +4,9 @@ export const Select = styled.select`
   background-color: ${p => p.theme.colors.colorFollow};
   color: ${p => p.theme.colors.colorButtonText};
   box-shadow: ${p => p.theme.button.boxShadow};
-  outline: 1px;
+  outline: 2px;
   padding: ${p => p.theme.button.padding};
   border-radius: ${p => p.theme.button.borderRadius};
-  font-family: ${p => p.theme.font.fontFamily};
-  font-style: ${p => p.theme.font.fontStyle};
   font-weight: ${p => p.theme.font.fontWeight};
   font-size: ${p => p.theme.font.fontSizeButton};
   text-transform: ${p => p.theme.font.textTransform};

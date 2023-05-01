@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
-import { NavigationBar } from '../NavigationBar/NavigationBar';
+import NavigationBar from '../NavigationBar';
 import Home from '../../pages/Home/Home';
 import Tweets from '../../pages/Tweets/Tweets';
-import { Container } from '../Container/Container';
+import Container from '../Container';
 
 function App() {
   return (
