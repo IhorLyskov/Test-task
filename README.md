@@ -1,8 +1,8 @@
-This is a web application built with the popular React framework. Styling uses
-Styled Components to create a visually appealing user interface. The application
-requests data from servers using Axios, a popular library for making HTTP
-requests. The data is then displayed to the user in an interactive and
-responsive manner using React components.
+This is a web application built with the popular `React` framework. Styling uses
+`Styled Components` to create a visually appealing user interface. The
+application requests data from server using `Axios`, a popular library for
+making HTTP requests. The data is then displayed to the user in an interactive
+and responsive manner using React components.
 
 ## Installation
 
