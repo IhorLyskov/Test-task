@@ -44,7 +44,7 @@ const Tweets = () => {
   };
 
   const handleLoadMore = () => {
-    setCount(count + 3);
+    setCount(prevCount => prevCount + 3);
   };
 
   return (
