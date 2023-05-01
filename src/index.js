@@ -1,4 +1,4 @@
-// import { StrictMode } from 'react';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
 import GlobalStyles from './components/GlobalStyles/GlobalStyles';
@@ -11,12 +11,12 @@ import { ThemeProvider } from 'styled-components';
 const root = createRoot(document.getElementById('root'));
 
 root.render(
-  // <StrictMode>
-  <ThemeProvider theme={theme}>
-    <BrowserRouter basename="/test-task">
-      <App />
-      <GlobalStyles />
-    </BrowserRouter>
-  </ThemeProvider>
-  // </StrictMode>
+  <StrictMode>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter basename="/test-task">
+        <App />
+        <GlobalStyles />
+      </BrowserRouter>
+    </ThemeProvider>
+  </StrictMode>
 );
