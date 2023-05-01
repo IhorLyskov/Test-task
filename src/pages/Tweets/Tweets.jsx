@@ -18,6 +18,7 @@ const Tweets = () => {
   const [tweets, setTweets] = useState([]);
   const [follows, setFollows] = useState({});
   const [count, setCount] = useState(3);
+  const [isFollowsChange, setIsFollowsChange] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -37,10 +38,18 @@ const Tweets = () => {
     // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    if (Object.keys(follows).length) {
+      save('follows', follows);
+    }
+    setIsFollowsChange(false);
+  }, [isFollowsChange, follows]);
+
   const handleClickFollow = id => {
-    follows[id] = follows[id] ? false : true;
-    setFollows(follows);
-    save('follows', follows);
+    const data = follows;
+    data[id] = data[id] ? false : true;
+    setFollows(data);
+    setIsFollowsChange(true);
   };
 
   const handleLoadMore = () => {
