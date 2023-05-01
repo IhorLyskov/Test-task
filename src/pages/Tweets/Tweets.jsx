@@ -63,11 +63,12 @@ const Tweets = () => {
             tweets &&
             tweets.length &&
             tweets.slice(0, count).map(tweet => {
+              const follow = follows[tweet.id];
               return (
                 <TweetsItem
                   key={tweet.id}
                   tweet={tweet}
-                  follow={follows[tweet.id]}
+                  follow={follow}
                   onClick={() => handleClickFollow(tweet.id)}
                 />
               );
