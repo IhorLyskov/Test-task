@@ -30,6 +30,7 @@ img {
   display: block;
 }
 
+select,
 a,
 button {
   text-decoration:none;

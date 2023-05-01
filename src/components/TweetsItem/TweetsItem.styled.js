@@ -87,3 +87,33 @@ export const TweetsCount = styled.p`
   margin-top: 16px;
   color: #ebd8ff;
 `;
+
+export const NameTextWrapper = styled.div`
+  position: absolute;
+  top: 130px;
+  left: 124px;
+  display: flex;
+  margin: 0, auto;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  min-width: 90px;
+  background-color: ${p => p.theme.colors.colorFollow};
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+`;
+
+export const Text = styled.p`
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: ${p => p.theme.colors.colorButtonText};
+  z-index: 1;
+
+  &:not(:last-of-type) {
+    margin-bottom: 16px;
+  }
+`;

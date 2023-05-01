@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FollowBtn = styled.button`
-  display: flex;
+  display: flex-inline;
   justify-content: center;
   align-items: center;
 

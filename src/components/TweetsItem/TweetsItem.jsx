@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Button from '../Button/Button';
 import {
   UserAvatar,
@@ -8,6 +9,8 @@ import {
   LogoImg,
   TweetItem,
   TweetsCount,
+  NameTextWrapper,
+  Text,
 } from './TweetsItem.styled';
 
 import Logo from '../../images/Logo.png';
@@ -15,9 +18,26 @@ import Picture from '../../images/Picture.png';
 import Circle from '../../images/Circle.png';
 
 const TweetsItem = ({ tweet, follow, onClick }) => {
-  const { tweets, followers, avatar } = tweet;
+  const { user, tweets, followers, avatar } = tweet;
+  console.log(user);
+
+  const [isHover, setIsHover] = useState(false);
+
+  const handleMouseOn = () => {
+    setIsHover(true);
+  };
+
+  const handleMouseOff = () => {
+    setIsHover(false);
+  };
+
   return (
-    <TweetItem>
+    <TweetItem onMouseEnter={handleMouseOn} onMouseLeave={handleMouseOff}>
+      {isHover && (
+        <NameTextWrapper>
+          <Text>{user}</Text>
+        </NameTextWrapper>
+      )}
       <LogoImg src={Logo} alt="GO-IT" />
       <PictureImg>
         <img src={Picture} alt="Something is drawn" />

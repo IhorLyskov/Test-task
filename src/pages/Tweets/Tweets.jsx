@@ -1,14 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Section } from '../../components/Section/Section.styled';
+import { Section, SectionText } from '../../components/Section/Section.styled';
 import TweetsItem from '../../components/TweetsItem/TweetsItem';
 import { TweetList } from '../../components/TweetsItem/TweetsItem.styled';
 import { getAllTweets } from '../../api/api';
 import Button from '../../components/Button/Button';
 import { Loader } from '../../components/Loader/Loader';
+// import { Container } from '../../components/Container/Container';
 import { getFollows } from '../../localStorage/getFollows';
 import { save } from '../../localStorage/localstorage';
+import Filter from '../../components/Filter/Filter';
 
 import { ContainerLoadMore, ContainerBack } from './Tweets.styled';
 
@@ -19,6 +21,8 @@ const Tweets = () => {
   const [follows, setFollows] = useState({});
   const [count, setCount] = useState(3);
   const [isFollowsChange, setIsFollowsChange] = useState(false);
+  const [isFilterChange, setIsFilterChange] = useState(true);
+  const [filter, setFilter] = useState('show all');
 
   useEffect(() => {
     (async () => {
@@ -50,11 +54,26 @@ const Tweets = () => {
     data[id] = data[id] ? false : true;
     setFollows(data);
     setIsFollowsChange(true);
+    setIsFilterChange(true);
   };
 
   const handleLoadMore = () => {
     setCount(prevCount => prevCount + 3);
   };
+
+  const filterTweets = useMemo(() => {
+    setIsFilterChange(false);
+    setCount(3);
+    switch (filter) {
+      case 'follow':
+        return tweets.filter(tweet => follows[tweet.id] === false);
+      case 'following':
+        return tweets.filter(tweet => follows[tweet.id] === true);
+      default:
+        return tweets;
+    }
+    // eslint-disable-next-line
+  }, [isFilterChange, filter, follows, tweets]);
 
   return (
     <>
@@ -63,27 +82,36 @@ const Tweets = () => {
           <Link to="/">
             <Button>Back</Button>
           </Link>
+          <Filter
+            value={filter}
+            onChange={e => {
+              setFilter(e.target.value);
+            }}
+          />
         </ContainerBack>
         {error && <p>Wrong, try again later...</p>}
-        <TweetList>
-          {!error && isLoading && <Loader />}
-          {!error &&
-            !isLoading &&
-            tweets &&
-            tweets.length &&
-            tweets.slice(0, count).map(tweet => {
-              const follow = follows[tweet.id];
-              return (
-                <TweetsItem
-                  key={tweet.id}
-                  tweet={tweet}
-                  follow={follow}
-                  onClick={() => handleClickFollow(tweet.id)}
-                />
-              );
-            })}
-        </TweetList>
-        {count < tweets.length && (
+        {!error && isLoading && <Loader />}
+        {!error && !isLoading && filterTweets && (
+          <TweetList>
+            {filterTweets.length > 0 ? (
+              filterTweets.slice(0, count).map(tweet => {
+                return (
+                  <TweetsItem
+                    key={tweet.id}
+                    tweet={tweet}
+                    follow={follows[tweet.id]}
+                    onClick={() => handleClickFollow(tweet.id)}
+                  />
+                );
+              })
+            ) : filter !== 'show all' ? (
+              <SectionText> You do not have any tweets </SectionText>
+            ) : (
+              <SectionText></SectionText>
+            )}
+          </TweetList>
+        )}
+        {!error && !isLoading && count < filterTweets.length && (
           <ContainerLoadMore>
             <Button onClick={handleLoadMore}>Load more</Button>
           </ContainerLoadMore>

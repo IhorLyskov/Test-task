@@ -1,8 +1,8 @@
-import { Menu, Nav, NavLinkHeader, BoyImg } from './NavBar.styled';
+import { Menu, Nav, NavLinkHeader, BoyImg } from './NavigationBar.styled';
 
 import boyImage from '../../images/Boy.png';
 
-export const NavBar = () => {
+export const NavigationBar = () => {
   return (
     <Nav>
       <Menu>
